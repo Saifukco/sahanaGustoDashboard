@@ -35,6 +35,9 @@ with tab1:
     repeat_orders = costumers_data.groupby('Customer').size().reset_index(name='Count')
 
     repeat_count = repeat_orders.groupby('Count').size().reset_index(name='Repeat Count')
+
+    # st.dataframe(costumers_data)
+    st.write('No. Of Outlets: '+ str(costumers_data['Customer'].nunique()))
     st.write('Total Sales: '+ str(costumers_data['Total Amount'].sum()))
 
     st.write('Total QTY: '+str(costumers_data['Quantity'].sum()))
@@ -62,6 +65,8 @@ with tab2:
 
     repeat_product_count = repeat_product_orders.groupby('Count').size().reset_index(name='Number Of Oultes')
 
+
+    st.write('No. Of Outlets: '+ str(filetered_costumers_products_data['Customer'].nunique()))
     st.write('Total Sales: '+ str(filetered_costumers_products_data['Total Amount'].sum()))
 
     st.write('Total QTY: '+str(filetered_costumers_products_data['Quantity'].sum()))
